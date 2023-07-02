@@ -1,0 +1,35 @@
+#bg
+{
+    height: 100vh;
+    width: 100vw;
+    background-image: url("earthquake.png");
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+}
+.add_space
+{
+    height: 25vh;
+}
+.add_space2
+{
+    height: 2vh;
+}
+#main_text
+{
+    align-content: center;
+    align-self: center;
+    font: 3em;
+     /* sans-serif; */
+    color: white;
+    text-align: center;
+    text-decoration: double;
+    font-weight: bolder;
+}
+#divi
+{
+    margin-left: 25vw;
+    margin-right: 25vw;
+    width: 50vw;
+    justify-self: center;
+    background-color: #402f1daf;
+}

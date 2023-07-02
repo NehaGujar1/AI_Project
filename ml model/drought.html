@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="drought.css">
+</head>
+<body id="bg" style="font-family: 'Comic Sans MS';">
+    <div class="add_space"></div>
+    <div id="divi"><h1><p id="main_text">Enter rainfall in ml</p></h1></div>
+    <input style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="number" id="rain_val" />
+    <div class="add_space2"></div>
+    <button style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-weight: bolder; font-size: 2vh;" type="button" onclick="takeInput()">PREDICT</button>
+
+    <script>
+    function takeInput() {
+        let x = document.getElementById("rain_val").value;
+        console.log(x)
+    }
+    </script>
+</body>
+</html>
