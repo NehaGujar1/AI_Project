@@ -67,5 +67,9 @@ b. Earthquake depends upon : Latitude,	Longitude,	Depth, nst,	gap,	dmin,	rms, ma
 c. Hurricanes depend on : location (atlantic/pacific), maximum wind and minimum pressure
 d. Tsunami depends on: magnitude	cdi,	mmi,	alert,	sig,	net,	nst,	dmin,	gap,	magType,	depth,	latitude,	longitude
 e. Tornado depends on: st,	mag,	inj,	fat,	slat,	slon,	elat,	elon,	len,	wind
-![Alt heatmap] (.heatmap)
-![Alt confusion matrix] (.confusion_matrix)
+Heatmap:![heatmap](https://github.com/NehaGujar1/AI_Project/assets/98935998/47d08ef2-3995-4970-8342-7a25db96b2da)
+
+Confusion matrix: ![confusion_matrix](https://github.com/NehaGujar1/AI_Project/assets/98935998/c4d9a3d9-8337-4514-a344-f818d60662ef)
+
+Sample output:
+![sample_output](https://github.com/NehaGujar1/AI_Project/assets/98935998/9fb46b47-833f-42ec-b78a-70bfd8221486)
