@@ -1,19 +1,138 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" href="tsunami.css">
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
 </head>
 <body id="bg" style="font-family: 'Comic Sans MS';">
     <div class="add_space"></div>
     <div id="divi"><h1><p id="main_text">Enter rainfall in ml</p></h1></div>
     <input style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="number" id="rain_val" />
+    <input name="magnitude" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="magnitude" />	
+    <input name="cdi" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="cdi" />	
+    <input name="mmi" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="mmi" />	
+    <input name="alert" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="alert" />	
+    
+    <input name="sig" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="sig" />
+    <input name="net" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="net" />
+    <input name="nst" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="nst" />
+    <input name="dmin" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="dmin" />
+    <input name="gap" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="gap" />
+    <input name="magType" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="magType" />	
+    <input name="depth" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="depth" />	
+    <input name="latitude" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="latitude" />	
+    <input name="longitude" style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="longitude" />
     <div class="add_space2"></div>
-    <button style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-weight: bolder; font-size: 2vh;" type="button" onclick="takeInput()">PREDICT</button>
+    <button style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-weight: bolder; font-size: 2vh;" type="button" id="makeprediction">PREDICT</button>
+    <p style="justify-self: center;margin: auto; display: block; height: 4vh; width: 10vw; background-color: #ffffffaf; font-size: 2vh; text-align: center;" type="text" id="tsunami"></p>
 
-    <script>
+    <!-- <script>
     function takeInput() {
         let x = document.getElementById("rain_val").value;
         console.log(x)
+        let magnitude =  document.getElementById("magnitude")	
+        let cdi = document.getElementById("cdi")	
+        let mmi = document.getElementById("mmi")	
+        let alert = document.getElementById("alert")	
+        let tsunami = document.getElementById("tsunami")	
+        let sig = document.getElementById("sig")	
+        let net = document.getElementById("net")	
+        let nst = document.getElementById("nst")	
+        let dmin = document.getElementById("dmin")	
+        let gap = document.getElementById("gap")	
+        let magType = document.getElementById("magType")	
+        let depth = document.getElementById("depth")	
+        let latitude = document.getElementById("latitude")	
+        let longitude = document.getElementById("longitude")
+        console.log("hi")
+        x_input = [magnitude,cdi,mmi,alert,tsunami,sig,net,nst,dmin,gap,magType,depth,latitude,longitude]
+        console.log("done")
+        document.getElementById("tsunami") = tsunami(x_input)
+        console.log("cool")
     }
-    </script>
+    </script> -->
+    <py-env>
+        - numpy
+        - pandas
+        - sklearn
+        - seaborn
+        - matplotlib.pyplot
+    </py-env>
+    <py-script>
+        from js import (
+            document,
+            Blob,
+            URL
+        )
+        from pyodide import create_proxy
+        magnitude =  document.getElementById("magnitude")	
+        cdi = document.getElementById("cdi")	
+        mmi = document.getElementById("mmi")	
+        alert = document.getElementById("alert")	
+        tsunami = document.getElementById("tsunami")	
+        sig = document.getElementById("sig")	
+        net = document.getElementById("net")	
+        nst = document.getElementById("nst")	
+        dmin = document.getElementById("dmin")	
+        gap = document.getElementById("gap")	
+        magType = document.getElementById("magType")	
+        depth = document.getElementById("depth")	
+        latitude = document.getElementById("latitude")	
+        longitude = document.getElementById("longitude")
+        import pandas as pd
+        # import matplotlib.pyplot as plt
+        import numpy as np
+        # import seaborn as sns
+        from sklearn.preprocessing import LabelEncoder
+        from sklearn.model_selection import train_test_split
+        from sklearn.ensemble import RandomForestClassifier
+        from sklearn import tree
+        le = LabelEncoder()
+        # %matplotlib inline
+        def inputvals():
+            print("inn")
+            pyscript.read('magnitude',magnitude)
+            pyscript.read('cdi',cdi)
+            pyscript.read('mmi',mmi)
+            pyscript.read('alert',alert)
+            pyscript.read('sig',sig)
+            pyscript.read('net',net)
+            pyscript.read('nst',nst)
+            pyscript.read('dmin',dmin)
+            pyscript.read('gap',gap1)
+            pyscript.read('magType',magType)
+            pyscript.read('depth',depth)
+            pyscript.read('latitude',latitude)
+            pyscript.read('longitude',longitude)
+            tsuname([magnitude,cdi,mmi,alert,sig,net,nst,dmin,gap1,magType,depth,latitude,longitude])
+            print("hello")
+        e = document.getElementById("makeprediction")
+        e.addEventListener("click",create_proxy(inputvals))
+        def tsunami(x_input):
+            data1 = pd.read_csv('earthquake_data.csv')
+            data1 = data1.drop(columns=["title","date_time","location","country","continent"])
+            #
+            le = LabelEncoder()
+            data1.alert = le.fit_transform(data1.alert)
+            data1.net = le.fit_transform(data1.net)
+            data1.magType = le.fit_transform(data1.magType)
+            data1 = data1.fillna(0)
+            x3 = data1.drop(columns=["tsunami"])
+            y3 = data1["tsunami"]
+            # data1.head()
+
+            # sns.heatmap(data1.corr())
+
+            x_train, x_test, y_train, y_test = train_test_split(x3,y3,test_size=0.2)
+            md = tree.DecisionTreeClassifier()
+            md.fit(x_train,y_train)
+            md.score(x_test,y_test)
+
+            md = RandomForestClassifier()
+            md.fit(x_train,y_train)
+            md.score(x_test,y_test)
+            y_output = md.predict(x_input)
+            pyscript.write('tsunami',y_output)
+    </py-script>
 </body>
 </html>
