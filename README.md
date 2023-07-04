@@ -71,5 +71,8 @@ Heatmap:![heatmap](https://github.com/NehaGujar1/AI_Project/assets/98935998/47d0
 
 Confusion matrix: ![confusion_matrix](https://github.com/NehaGujar1/AI_Project/assets/98935998/c4d9a3d9-8337-4514-a344-f818d60662ef)
 
-Sample output:
-![sample_output](https://github.com/NehaGujar1/AI_Project/assets/98935998/9fb46b47-833f-42ec-b78a-70bfd8221486)
+Sample output:<br>
+![sample_output](https://github.com/NehaGujar1/AI_Project/assets/98935998/9fb46b47-833f-42ec-b78a-70bfd8221486)<br>
+figma link to the way it's front page should look: https://www.figma.com/file/dVsC00W9LmyDmaG1TtTcOK/Untitled?type=design&node-id=0%3A1&mode=design&t=QcCQSPmhE4HO1al6-1
+<br>
+<b>To access any type you can go to that python file run the model and then send your input and you will get predicted output all the 5 python files are uploaded.</b>
